@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+
+<br />
+<br />
+<br />
+
+<a [routerLink]="['/', { outlets: { secundary: ['chat']} }]">
+  Chat
+ </a>
+
+<br />
+<br />
+<br />
+
+<br />
+<br />
+<br />
+
+<h1>Secundary Outlet</h1>
+<router-outlet name="secundary"></router-outlet>
+
+<br><br><br><br>
+<a [routerLink]="['/']">
+  Primary
+</a>

@@ -1,0 +1,60 @@
+<mdb-col s="12" m="12" l="12">
+	<mat-table [dataSource]="getLista()" matSort (matSortChange)="sortData($event)" matSortDisableClear>
+ 		<ng-container *ngFor="let coluna of colunas" matColumnDef="{{coluna.atributo}}">
+			
+			<div *ngIf="coluna.ehCheckbox">
+				<mat-header-cell *matHeaderCellDef [ngStyle]="{'flex': coluna.tamanho}"> 
+					<mdb-col l=12 m=12>	
+						<mat-checkbox   (change)="$event ? mudarValorDeTodos(coluna.atributo) : null"
+										[checked]="selecionados.hasValue() && heTodosSelecionado()"
+										[indeterminate]="selecionados.hasValue() && !heTodosSelecionado()"
+										style="float: left">
+						</mat-checkbox>
+						<span  class="cabecalho-tabela-check">
+							{{coluna.valorCabecalho}} 
+						</span>
+					</mdb-col>
+				</mat-header-cell>
+				<mat-cell *matCellDef="let item" [ngStyle]="{'flex': coluna.tamanho}">
+					<mdb-col l=12 m=12>
+						<mat-checkbox	(click)="$event.stopPropagation()"
+										(change)="$event ? mudarValorDoItem(item, coluna.atributo) : null;"
+										[checked]="selecionados.isSelected(item)">
+						</mat-checkbox>
+					</mdb-col>
+				</mat-cell>
+			</div>
+
+
+			<div *ngIf="!coluna.ehCheckbox">
+				<div *ngIf="coluna.ordenavel">
+					<mat-header-cell class="cabecalho-tabela" *matHeaderCellDef mat-sort-header  [ngStyle]="{'flex': coluna.tamanho}"> {{coluna.valorCabecalho}} </mat-header-cell>
+				</div>
+				
+				<div *ngIf="!coluna.ordenavel">
+					<mat-header-cell class="cabecalho-tabela" *matHeaderCellDef  [ngStyle]="{'flex': coluna.tamanho}"> {{coluna.valorCabecalho}} </mat-header-cell>
+				</div>
+				
+				<div *ngIf="coluna.template">
+					<mat-cell *matCellDef="let item; let indice = index" [ngStyle]="{'flex': coluna.tamanho}">
+						<div [ngTemplateOutlet]="coluna.template" [ngTemplateOutletContext]="{item: item, indice:indice}"> </div>
+					</mat-cell>
+				</div>
+				<div *ngIf="!coluna.template">
+					<mat-cell *matCellDef="let item" [ngStyle]="{'flex': coluna.tamanho}" matTooltip="{{coluna.tooltip ? buscarValor(item,coluna.atributo) : ''}}"> {{buscarValor(item,coluna.atributo)}} </mat-cell>
+				</div>
+			</div>
+		</ng-container>
+		<mat-header-row *matHeaderRowDef="listaCabecalho()"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: listaCabecalho();" [ngStyle]="_estiloDaLinha(row).estilo"></mat-row>
+	</mat-table>
+	<mat-paginator
+		#paginador *ngIf="ehPaginado" 
+		showFirstLastButtons
+		[hidePageSize] = true
+		[length]="totalDeItens"
+		[pageSize]="itensPorPagina"
+		[pageIndex]="_numeroPagina"
+		(page)="alterarPagina($event)">
+  </mat-paginator>
+</mdb-col>

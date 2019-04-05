@@ -1,0 +1,32 @@
+
+/* TITULOS */
+@font-face {
+    font-family: "Fjalla One";
+    font-style: normal;
+    font-weight: 400;
+    src: url("assets/fonts/FjallaOne-Regular.ttf") format("truetype");
+  }
+  
+  /* PADRÃO */
+  @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto'), local('Roboto-Regular'),url("assets/fonts/Roboto-Regular.ttf") format("truetype");
+      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+  
+  /* ICONES */
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/material-icon.woff2'); /* For IE6-8 */
+    src: local('Material Icons'),
+         local('MaterialIcons-Regular'),
+         url('assets/fonts/material-icon.woff2') format('woff2')
+  }
+
+  .material-icons {
+      font-family: 'Material Icons';
+  }

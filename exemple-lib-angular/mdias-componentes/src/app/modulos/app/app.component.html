@@ -1,0 +1,22 @@
+<mdb-navbar
+    [logoImg]="logoImg"
+    [mostrarNomeSistema] = "mostrarNomeSistema"
+    [usuario]="usuario"
+    [menu]="menu"
+    icone="{{logoIcone}}"
+>   </mdb-navbar>
+
+<mdb-mensagens></mdb-mensagens>
+
+<mdb-timeout></mdb-timeout>
+
+<ng-content ></ng-content>
+
+<div class="loading" *ngIf="loadding()">
+    <div id="loader"></div>
+</div>
+
+<mdb-footer anoReferencia="{{anoReferencia}}">
+</mdb-footer>
+
+

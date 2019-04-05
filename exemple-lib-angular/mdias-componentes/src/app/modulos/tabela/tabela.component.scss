@@ -1,0 +1,31 @@
+.mat-column-select {
+    overflow: initial;
+
+}
+
+.mat-cell {
+  padding: 1rem 1rem 0px;
+}
+
+.cabecalho-tabela {
+  font-size: 1rem !important;
+  font-weight: bold;
+  font-family: "Fjalla One", sans-serif;
+  display: inline;
+  padding: 1rem 1.5rem 1rem 0px;
+  .col {
+    font-size: 1rem !important;
+    font-weight: bold;
+    font-family: "Fjalla One", sans-serif;
+  } 
+}    
+
+.cabecalho-tabela-check{
+  font-size: 1rem !important;
+  font-weight: bold;
+  font-family: "Fjalla One", sans-serif;
+}
+
+mat-header-cell.cabecalho-tabela {
+  padding-left: 1rem;
+}

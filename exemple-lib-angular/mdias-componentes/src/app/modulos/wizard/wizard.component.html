@@ -1,0 +1,20 @@
+<mdb-col l="12" m="12">
+	<div class="wizard">
+		<div class="cabecalho">
+			<div *ngFor="let item of itens; let i = index" class="etapa" 
+				[ngClass]="{'ativo': item.ativo == true , 'valido': item.valido == true }" >
+				<div *ngIf="!item.imagem"  class="circulo" (clique)="clicarItem(i+1)">
+					<span class="posicao" [matTooltip]="item.tooltip">{{i+1}}</span>
+				</div>
+				
+				<span *ngIf="item.imagem" class="imagemCirculo">
+					<img class="posicao" [matTooltip]="item.tooltip" matTooltipPosition="above" [src]="item.imagem">
+				</span>
+				<h5 >{{item.titulo}}</h5>
+			</div>
+		</div>
+		<div class="conteudo">
+			<ng-content></ng-content>
+		</div>
+	</div>
+</mdb-col>

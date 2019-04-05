@@ -1,0 +1,20 @@
+<div class="timeout-alert" *ngIf="timeout.tempoRestante && timeout.tempoRestante < 60 && timeout.tempoRestante > 0" @timeoutAnimation >
+    <div class="meio">
+        <mat-icon>alarm</mat-icon>
+        <span *ngIf="timeout.tempoRestante < 10">0</span>{{timeout.tempoRestante}}
+        
+        <div class="texto">
+            <h5>{{nomeDoUsuario}} você está ocioso.</h5>
+            <h5>Ainda por aqui?</h5>
+        </div>
+
+        <a class="sim" (click)="manterSessao()">
+            Sim
+        </a>
+
+        <a class="nao" (click)="deslogar()">
+            Não
+        </a>
+
+    </div>
+</div>

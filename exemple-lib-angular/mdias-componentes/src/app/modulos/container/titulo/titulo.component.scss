@@ -1,0 +1,10 @@
+@import '../../../../assets/sass/themaMaterial';
+
+:host {
+    padding: 1.5rem 0.75rem;    
+    display: block;
+    font-family: $font-titulo;
+    font-size: 2rem;
+    color: mat-color($mat-mdias, 700);
+    height: 6rem;
+}

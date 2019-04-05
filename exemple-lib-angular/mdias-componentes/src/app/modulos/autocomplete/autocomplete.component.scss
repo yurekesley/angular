@@ -1,0 +1,17 @@
+.is-loading ::ng-deep .mat-option-text {
+  display: flex;
+  justify-content: center;
+}
+
+.display ::ng-deep{
+  height: auto;
+  .mat-option-text {
+    line-height: 1.6rem;
+    padding: 0.3rem 0;
+    white-space: normal;
+  }
+}
+
+.alturaMinima ::ng-deep{
+  height: auto
+}

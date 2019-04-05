@@ -1,0 +1,73 @@
+.timeout-alert {
+    display: table;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, .75);
+    color: #fff;
+    text-align: center;
+    z-index: 999;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 3.2rem;
+    top: 0 !important;
+
+    .meio {
+        vertical-align:middle;
+        display: table-cell;
+    }
+
+    .mat-icon {
+        animation: trimtrim 1s linear reverse infinite; 
+        margin-right: 35px;
+        font-size: 3rem;
+    }
+
+    .texto {
+        margin: 15px;
+        h5 {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+    }
+
+    a {
+        width: 150px;
+        margin-right: 10px;
+        font-size: 1.5rem;
+        background: rgba(255, 255, 255, .1);
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        
+        border: 1px solid #fff;
+
+        &:hover {
+            background: rgba(255, 255, 255, .2);
+        }
+
+    }
+
+    .sim {
+    }
+    .nao {
+        background: rgba(255, 255, 255, .0);
+    }
+}
+@keyframes trimtrim { 
+    0% {
+        transform: rotate(0deg)
+    }
+    50%{
+        transform: rotate(0deg)
+    }
+    80% {
+        transform: rotate(15deg) scale(1.2)
+    }
+    100% { 
+        transform: rotate(-15deg) scale(1.1)
+    } 
+}

@@ -1,0 +1,21 @@
+@import '../../../../assets/sass/themaMaterial';
+
+.mensagem {
+    display: block;
+    width: 100%;
+    margin-bottom: 32px;
+    text-align: center;
+    font-family: $font-principal;
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+
+.botoes {
+    width: 100%;
+    display: block;
+    text-align: center;
+    button {
+        margin: 0 16px;
+    }
+}

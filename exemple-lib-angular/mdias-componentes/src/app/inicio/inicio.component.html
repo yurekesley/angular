@@ -1,0 +1,196 @@
+<mdb-container>
+    <mdb-titulo>
+        <span class="alinhar-a-esquerda">Teste</span>
+        <button mat-icon-button color="primary" class="alinhar-a-esquerda" (click)="confirmar()">
+            <mat-icon >help</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" class="alinhar-a-direita">Novo</button>
+    </mdb-titulo>
+
+    <mdb-row>
+        <mdb-col l=12 m=12>
+            <mat-card>
+                <mdb-sub-titulo>
+                    Meu sub titulo
+                    <button mat-button color="primary" class="alinhar-a-direita">Atualizar</button>
+                </mdb-sub-titulo>
+
+                <mdb-row>
+                    <mdb-col l=12 m=12>
+                        <mdb-tabela
+                              [lista]="lista"
+                              [totalDeItens]="50"
+                              [itensPorPagina]="lista.length"
+                              [ehPaginado] = "true"
+                              [ehLazy]="true"
+                              (estiloDaLinha)="pintarLinha($event)"
+                              >
+                            <mdb-coluna atributo="id" valorCabecalho="id">
+                            </mdb-coluna>
+                            <mdb-coluna atributo="nome" valorCabecalho="nome" [tamanho]="5">
+                            </mdb-coluna>
+                            <mdb-coluna atributo="desc" valorCabecalho="Desc">
+                            </mdb-coluna>
+                        </mdb-tabela>
+                    </mdb-col>
+                </mdb-row>
+
+            </mat-card>
+        </mdb-col>
+    </mdb-row>
+
+    <mdb-row>
+        <mdb-col l=6>
+            <mat-card>
+                <mdb-sub-titulo>
+                    Meu sub titulo
+                    <button mat-button color="primary" class="alinhar-a-direita">Atualizar</button>
+                </mdb-sub-titulo>
+                bla bla bla
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                bla bla bla
+                bla bla bla
+                bla bla bla
+                <br/>
+                <br/>
+            </mat-card>
+        </mdb-col>
+        <mdb-col l=6>
+            <mat-card>
+                <mdb-sub-titulo>
+                    Meu sub titulo
+                    <button mat-button color="primary" class="alinhar-a-direita">Atualizar</button>
+                </mdb-sub-titulo>
+                bla bla bla
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                bla bla bla
+                bla bla bla
+                bla bla bla
+                <br/>
+                <br/>
+            </mat-card>
+        </mdb-col>
+    </mdb-row>
+
+    <mdb-row>
+        <mdb-col>
+            <mat-card>
+                <mdb-sub-titulo>
+                    Meu sub titulo
+                    <button mat-button color="primary" class="alinhar-a-direita">Atualizar</button>
+                </mdb-sub-titulo>
+                bla bla bla
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                bla bla bla
+                bla bla bla
+                bla bla bla
+                <br/>
+                <br/>
+            </mat-card>
+        </mdb-col>
+        <mdb-col>
+            <mat-card>
+                <mdb-sub-titulo>
+                    Meu sub titulo
+                    <button mat-button color="primary" class="alinhar-a-direita">Atualizar</button>
+                </mdb-sub-titulo>
+                bla bla bla
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                bla bla bla
+                bla bla bla
+                bla bla bla
+                <br/>
+                <br/>
+            </mat-card>
+        </mdb-col>
+    </mdb-row>
+
+
+    <div class="row">
+    <mdb-col l="12" m="12" s="12">
+        <mat-card>
+            <div class="row">
+              <form [formGroup]="form" (keyup.enter)="confirmar()">
+                <mdb-col l="3" m="6" s="12">
+                  <mdb-autocomplete
+                    [controle]="form.get('equipe')"
+                    [ehObrigatorio]="false"
+                    [atributoDisplay]="'descricao'"
+                    [label]="'Equipes'"
+                    [lista]="lista">
+                  </mdb-autocomplete>
+                </mdb-col>
+                <mdb-col l="3" m="6" s="12">
+                    <mdb-autocomplete
+                    [controle]="form.get('equipe')"
+                    [ehObrigatorio]="false"
+                    [atributoDisplay]="'descricao'"
+                    [label]="'Indicadores'"
+                    [lista]="lista"
+                    [dependentes] = "[form.get('equipe')]"
+                    >
+                  </mdb-autocomplete>
+                </mdb-col>
+                <mdb-col l="2" m="6" s="12">
+                  <mat-form-field class="example-full-width">
+                      <input #ano matInput autocomplete="off" maxlength="4" [placeholder]="'Ano'" formControlName="ano">
+                      <mat-hint align="end">{{ano.value?.length || 0}}/4</mat-hint>
+                      <mat-error >{{mostrarError(form.get('ano'))}}</mat-error>
+                    </mat-form-field>
+                </mdb-col>
+                <mdb-col l="2" m="6" s="12">
+                <mat-form-field>
+                    <mat-select placeholder="Mês" formControlName="mes">
+                      <mat-option>-- SELECIONE --</mat-option>
+                      <mat-option *ngFor="let mes of meses" [value]="mes.id">
+                        {{ mes.nome }}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error >{{mostrarError(form.get('mes'))}}</mat-error>
+                  </mat-form-field>
+                </mdb-col>
+                <mdb-col l="2" m="6" s="12">
+                    <mat-form-field>
+                        <mat-select placeholder="Status" formControlName="status">
+                          <mat-option>-- SELECIONE --</mat-option>
+                          <mat-option *ngFor="let status of STATUS_PDCA_LISTA" [value]="status.chave">
+                            {{ status.valor }}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error >{{mostrarError(form.get('mes'))}}</mat-error>
+                      </mat-form-field>
+                    </mdb-col>
+              </form>
+            </div>
+            <div class="row">
+              <mdb-acoes>
+                <button mat-stroked-button (click)= "limpar()" >Limpar</button>
+                <button mat-flat-button color="primary" (click)="traduzir()" >Traduzir</button>
+              </mdb-acoes>
+            </div>
+        </mat-card>
+    </mdb-col>
+  </div>
+</mdb-container>
+
+
+<div>
+  {{'BOTAO.SALVAR' | i18n: {a: 'SSSSSSSSSSSSSSSS'} }}
+</div>
+

@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "noImplicitAny": false,
+        "rootDir": "./app/src/",
+        "outDir": "./WebContent/public/app/",
+        "baseUrl": ".",
+        "paths": {
+            "angularjs/*": ["./src/app/*"]
+        }
+    },
+    "exclude": [
+        "gulpfile.ts",
+        "node_modules",
+        "public",
+        "typings/main",
+        "typings/main.d.ts"
+    ]
+}

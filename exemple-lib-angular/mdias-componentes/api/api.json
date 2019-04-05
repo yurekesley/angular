@@ -1,0 +1,53 @@
+{
+  "info": {
+    "status": "SUCCESS",
+    "data": { "version": "1.0.0_00" },
+    "message": null,
+    "code": null
+  },
+  "login": {
+    "data": {
+      "usuario": {
+        "codigo": "ter01282",
+        "nome": "YURE KESLEY MOREIRA PLACIDO",
+        "email": "yure.placido@terceirizadomdb.com.br",
+        "codEmpresaPadrao": "01",
+        "userId": 92794,
+        "token": "MDIAS-SA eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXIwMTI4MiIsImV4cCI6MTU0MzU4NDU5OH0.DH_19F6gEeS01f3dIYSp1TUXPJ6IRA-zpZ4RommvqSFD5SIe1yLSp__8IujRcen5lWeTR0rETSHqy3afK-WUlw",
+        "tipoUsuario": "USUARIO",
+        "autenticado": true,
+        "parametros": {}
+      }
+    },
+    "message": null,
+    "status": "SUCCESS"
+  },
+  "menu": [
+    {
+      "titulo": "MENU 1",
+      "menus": [
+        {
+          "titulo": "OUTRA PÁGINA",
+          "url": "outraPagina"
+        }
+      ]
+    },
+    {
+      "titulo": "OUTRA PÁGINA",
+      "url": "outraPagina"
+    }
+  ],
+  "funcoes": [
+    {
+      "codigoUsuario": "ter0000",
+      "codigoEmpresa": "01",
+      "codigoFuncao": "FUN0001",
+      "descricaoFuncao": "Gerente",
+      "nivel": 0,
+      "url": "/outraPagina",
+      "tipoUrl": 1,
+      "visivel": "N",
+      "acoes": "[DELETE];[POST];[PUT]"
+    }
+  ]
+}

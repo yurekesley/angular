@@ -1,0 +1,47 @@
+<mat-form-field *ngIf="!readonly">
+	<textarea
+		type="text" matInput  placeholder="{{label}}"
+		matTextareaAutosize matAutosizeMaxRows="5"
+		[matAutocomplete]="autoComplete"
+		[required] = "ehObrigatorio"
+		[formControl]="controle"
+		[readonly]="readonly"
+		(blur)="evento.focusout($event)"
+		(focus)="evento.focus($event)"
+		(keyup) = "evento.keyup($event)"
+		class="alturaMinima"
+	></textarea>
+	<mat-error >{{mostrarError(controle)}}</mat-error>
+	<mat-autocomplete
+		#autoComplete="matAutocomplete"
+		[displayWith]="displayWith"
+		(optionSelected)= "evento.itemSelecionado($event)"
+	>
+		<ng-container >
+			<mat-option *ngIf="comLoading ? mostrarLoading : false" class="is-loading">
+				<mat-spinner diameter="30"></mat-spinner>
+			</mat-option>
+			<ng-container *ngIf="comLoading ? !mostrarLoading : true ">
+				<mat-option 
+				*ngFor="let opcao of opcoes | async" 
+				[value]="opcao"
+				class="display"
+				>
+				{{ display(opcao) }}
+				</mat-option>
+			</ng-container>
+		</ng-container>
+	</mat-autocomplete>
+</mat-form-field>
+
+<mat-form-field *ngIf="readonly">
+	<input
+		type="text" matInput  placeholder="{{label}}"
+		value="{{valorQuandoReadyOnly()}}"
+		[readonly]="true"
+	>
+</mat-form-field>
+
+
+
+

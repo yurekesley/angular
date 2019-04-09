@@ -1,7 +1,7 @@
 import { Output, Component, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'test',
+  selector: 'app-output-component',
   template: `
     <button (click)="doGreet()">Do greet</button>
   `

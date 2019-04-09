@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'test',
+  selector: 'app-dom-testing-component',
   template: `
     <div class="container" *ngIf="isVisible">Hi there!</div>
     <button (click)="isVisible = !isVisible">toggle</button>

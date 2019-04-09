@@ -1,7 +1,7 @@
 import { Input, Component } from '@angular/core';
 
 @Component({
-  selector: 'test',
+  selector: 'app-input',
   template: `{{ message }}`
 })
 export class InputComponent {
